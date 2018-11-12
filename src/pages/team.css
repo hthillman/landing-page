@@ -1,0 +1,15 @@
+@media screen and (max-width : 760px){
+    .team-toplevel{
+        padding-top:6% !important;
+    }
+    .read-docs{
+        margin-bottom: 5%;
+    }
+    .bio-pic{
+        margin-top:10%;
+        margin-bottom:-5%;
+    }
+    .bio-bio{
+        margin-top: -10%
+    }
+}

@@ -1,0 +1,28 @@
+@media screen and (min-width : 760px){
+
+  }
+  
+    @media screen and (max-width : 760px){
+        .step1card{
+            margin-top:10%;
+            margin-bottom:10%;
+
+        }
+        .step2card{
+            margin-top:10%;
+            margin-bottom:10%;
+            display:flex;
+            order:1;
+        }
+    .step3card{
+          margin-top:10%;
+          margin-bottom:10%;
+
+      }
+    .step4card{
+        margin-top:10%;
+        margin-bottom:10%;
+        display:flex;
+        order:1;
+      }
+    }
