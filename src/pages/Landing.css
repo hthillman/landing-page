@@ -15,6 +15,17 @@
     .gettingstarted-button{
       margin-bottom:2.5%;
     }
+    .code-demo{
+      display:none;
+    }
+    .headline{
+      width:100%;
+      display:block;
+    }
+    .tagline{
+      width:275%;
+      display:block;
+    }
     /* .landing-toplevel{
         display:flex;
         flex-direction: column;

@@ -48,6 +48,7 @@ scrollToMyRef = () => {
                                                               boxShadow: "1px 2px 4px 0 rgba(0, 0, 0, 0.2), 1px 6px 20px 0 rgba(0, 0, 0, 0.19)"}}>
                 </img>
               </Col>
+              <Col xs="1"></Col>
               <Col className="bio-name" sm={{ size: '3', offset: 1}} style={{lineHeight:"130px"}}>
                 <p style={{fontWeight:"lighter",
                           fontFamily: "'proxima-nova',sans-serif",
@@ -60,7 +61,7 @@ scrollToMyRef = () => {
                 <span style={{fontStyle:"italic"}}>founder, project lead</span>
                 </p>
               </Col>
-              <Col className="bio-bio" sm={{ size: '5', offset: 0.50}} style={{lineHeight:"130px"}}>
+              <Col className="bio-bio" sm={{ size: '4', offset: 0.50}} style={{lineHeight:"130px"}}>
                 <p style={{fontWeight:"lighter",
                           fontFamily: "'proxima-nova',sans-serif",
                           color:"#0F1012",
@@ -80,7 +81,7 @@ scrollToMyRef = () => {
                                                               borderRadius: "20px",
                                                               boxShadow: "1px 2px 4px 0 rgba(0, 0, 0, 0.2), 1px 6px 20px 0 rgba(0, 0, 0, 0.19)"}}></img>
               </Col>
-              <Col className="bio-name" sm={{ size: '3', offset: 1}} style={{lineHeight:"130px"}}>
+              <Col className="bio-name" sm={{ size: '3', offset: 2}} style={{lineHeight:"130px"}}>
                 <p style={{fontWeight:"lighter",
                           fontFamily: "'proxima-nova',sans-serif",
                           color:"#0F1012", 
@@ -92,7 +93,7 @@ scrollToMyRef = () => {
                 <span style={{fontStyle:"italic"}}>founder, COO</span>
                 </p>
               </Col>
-              <Col className="bio-bio" sm={{ size: '5', offset: 0.50}} style={{lineHeight:"130px"}}>
+              <Col className="bio-bio" sm={{ size: '4', offset: 0.50}} style={{lineHeight:"130px"}}>
                 <p style={{fontWeight:"lighter",
                           fontFamily: "'proxima-nova',sans-serif",
                           color:"#0F1012",
@@ -113,7 +114,7 @@ scrollToMyRef = () => {
                                                               borderRadius: "20px",
                                                               boxShadow: "1px 2px 4px 0 rgba(0, 0, 0, 0.2), 1px 6px 20px 0 rgba(0, 0, 0, 0.19)"}}></img>
               </Col>
-              <Col className="bio-name" sm={{ size: '3', offset: 1}} style={{lineHeight:"130px"}}>
+              <Col className="bio-name" sm={{ size: '3', offset: 2}} style={{lineHeight:"130px"}}>
                 <p style={{fontWeight:"lighter",
                           fontFamily: "'proxima-nova',sans-serif",
                           color:"#0F1012", 
@@ -125,7 +126,7 @@ scrollToMyRef = () => {
                 <span style={{fontStyle:"italic"}}>founder, CTO</span>
                 </p>
               </Col>
-              <Col className="bio-bio" sm={{ size: '5', offset: 0.50}} style={{lineHeight:"130px"}}>
+              <Col className="bio-bio" sm={{ size: '4', offset: 0.50}} style={{lineHeight:"130px"}}>
                 <p style={{fontWeight:"lighter",
                           fontFamily: "'proxima-nova',sans-serif",
                           color:"#0F1012",
@@ -145,7 +146,7 @@ scrollToMyRef = () => {
                                                               borderRadius: "20px",
                                                               boxShadow: "1px 2px 4px 0 rgba(0, 0, 0, 0.2), 1px 6px 20px 0 rgba(0, 0, 0, 0.19)"}}></img>
               </Col>
-              <Col className="bio-name" sm={{ size: '3', offset: 1}} style={{lineHeight:"130px"}}>
+              <Col className="bio-name" sm={{ size: '3', offset: 2}} style={{lineHeight:"130px"}}>
                 <p style={{fontWeight:"lighter",
                           fontFamily: "'proxima-nova',sans-serif",
                           color:"#0F1012", 
@@ -157,7 +158,7 @@ scrollToMyRef = () => {
                 <span style={{fontStyle:"italic"}}>head of growth</span>
                 </p>
               </Col>
-              <Col className="bio-bio" sm={{ size: '5', offset: 0.50}} style={{lineHeight:"130px"}}>
+              <Col className="bio-bio" sm={{ size: '4', offset: 0.50}} style={{lineHeight:"130px"}}>
                 <p style={{fontWeight:"lighter",
                           fontFamily: "'proxima-nova',sans-serif",
                           color:"#0F1012",
@@ -198,8 +199,9 @@ scrollToMyRef = () => {
                 <Row className="team-cta" style={{fontWeight:"lighter",
                           fontFamily: "'proxima-nova',sans-serif",
                           color:"#0F1012"}}>
-                  <Col className="read-docs" sm={{ size: '3', offset: 3}}><Button outline color="warning" href="https://docs.connext.network" style={{color:"#FCA311"}}>Read our documentation</Button> </Col>
-                  <Col sm={{ size: '3', offset: 0}} ><Button color="warning" href="https://discord.gg/yKkzZZm" style={{color:"white"}}>Join our community chat</Button></Col>
+                  <Col className="read-docs" style={{textAlign:"right"}} ><Button outline color="warning" href="https://docs.connext.network" style={{color:"#FCA311"}}>Read our documentation</Button> </Col>
+                  <Col xs="0"></Col>
+                  <Col style={{textAlign:"left"}}><Button color="warning" href="https://discord.gg/yKkzZZm" style={{color:"white"}}>Join our community chat</Button></Col>
                 </Row>
           </Container>
       </Container>

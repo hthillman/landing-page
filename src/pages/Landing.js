@@ -8,12 +8,10 @@ import {
   Button
 } from "reactstrap";
 import Demo from "../components/demo";
-
+import codedemo from "../assets/codedemo.gif";
+import computer from "../assets/computer.png";
 
 class Landing extends Component {
-
-
-
 
   render() {
     var settings = {
@@ -27,25 +25,28 @@ class Landing extends Component {
       <div className="landing-toplevel" style={{paddingTop:"6%"}}>
       <Container style={{marginBottom:"10%"}}>
         <Row>
-          <Col >
+          <Col xs="5" className="headline">
           <h2 style={{fontFamily:"Comfortaa"}}>Unlocking the micropayment economy</h2>
-          <p style={{fontWeight:"lighter",
+          <p className="tagline" style={{fontWeight:"lighter",
                             fontFamily: "'proxima-nova',sans-serif",
                             color:"#0F1012"}}>
             Connext is a state channel network that enables cheap, low latency payments on Ethereum. 
             Our open source infrastructure makes it easy for developers to build the P2P applications of the future.</p>
+            <Button className="gettingstarted-button" outline color="warning" href="https://docs.connext.network">Get Started</Button> 
+          <Button className="joincommunity-button" color="warning" href="https://discord.gg/yKkzZZm" style={{marginLeft:"1%",color:"white"}}>Join our community chat</Button>
           </Col>
-          <Col >
-          <div id="codeDemo" htmlFor="codeDemo" className="codeDemo"></div>
+          <Col className="code-demo" xs="7" style={{paddingLeft:"15%"}}>
+          <div className="computer-wrap" style={{position: "relative",
+                                                  minHeight: "80%",
+                                                  height: "auto",
+                                                  maxHeight: "none",
+                                                  maxWidth: "80%",
+                                                  backgroundColor: "#fff"}}>
+            <img src={computer} alt="laptop image" style={{width:"130%", zIndex:0}}/>
+            <img src={codedemo} alt="code gif" style={{maxWidth:"95%",position:"absolute",top:"8%",left:"15.5%", zIndex:1}}/>
+          </div>
           </Col>
         </Row>
-        <Row>
-        <Col>
-          <Button className="gettingstarted-button" outline color="warning" href="https://docs.connext.network">Get Started</Button> 
-          <Button className="joincommunity-button" color="warning" href="https://discord.gg/yKkzZZm" style={{marginLeft:"1%",color:"white"}}>Join our community chat</Button>
-        </Col>
-
-        </Row>      
       </Container>
       <Container className="viable" style={{marginBottom:"10%"}}>
         <Row style={{marginBottom:"2%"}}>

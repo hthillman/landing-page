@@ -59,6 +59,14 @@ class Demo extends Component {
       handleThreadSubmit(event) {
         //var toPay = this.state.toPay;
         var toPay = 0.05;
+        var balanceA = this.state.balanceA;
+        var balanceB = this.state.balanceB;
+        var txCount = this.state.txCount;
+
+        var txCountUpdate = +(parseFloat(txCount+1).toFixed(0));
+        var updateA = +(parseFloat(balanceA-toPay).toFixed(2));
+        var updateB = +(parseFloat(balanceB+toPay).toFixed(2));
+
         if(toPay < 0){
             alert("Please enter a non-negative value!")
         }else if(this.state.balanceA < toPay){
@@ -68,13 +76,13 @@ class Demo extends Component {
             console.log(this.state.balanceB)
             console.log(this.state.toPay)
             this.setState(({ balanceA }) => ({
-                balanceA: (balanceA - toPay*1)
+                balanceA: updateA
             }))
             this.setState(({ balanceB }) => ({
-                balanceB: balanceB + toPay*1
+                balanceB: updateB
             }))
             this.setState(({ txCount }) => ({
-                txCount: txCount += 1
+                txCount: txCountUpdate
             }))
             event.preventDefault();
         }
@@ -130,7 +138,7 @@ class Demo extends Component {
                             fontFamily: "Comfortaa",
                             color:"#FCA311"}}>STEP 1</h4>
             <p>First, Alice needs to deposit some money to her friendly neighborhood Connext Hub. Let's give her a hand. 
-                Try depositing some money (let's say 50 DAI, but this could be ETH or any ERC20 token). Now, watch her channel balance increase.
+                 Let's give her 50 DAI, but this could be ETH or any ERC20 token. Now, watch her channel balance increase.
             </p>
         </div>
         <Button color="warning" outline style={{color:"#FCA311"}} onClick={this.handleDepositSubmit}>
@@ -149,50 +157,68 @@ class Demo extends Component {
         <Col className="step1card" style={{   border: "5px solid #fff",
                         borderRadius: "10px",
                         boxShadow: "1px 2px 4px 0 rgba(0, 0, 0, 0.2), 1px 6px 20px 0 rgba(0, 0, 0, 0.19)",
-                        display: "block",
-                        verticalAlign:"bottom"
+                        display: "block"
                         }}>
-        <div>
-        { this.state.showSpinner ? <img src={spinner} alt="orange loading spinner" style={{width:"50px"}}/> : <img src={greencheck} alt="green check markr" style={{width:"50px"}}/> }
-        <br />
-        Alice's Balance: 
-        <AnimatedNumber component="text" value={this.state.balanceA} stepPrecision="2"
-            style={{
-                paddingLeft:"1%",
-                transition: '0.8s ease-out',
-                fontSize: 20,
-                transitionProperty:
-                    'background-color, color, opacity'
-            }}
-            duration={300} />
-        </div>
+        <div style={{paddingTop:"12%"}}>
+        { this.state.showSpinner ? <img src={spinner} alt="orange loading spinner" style={{width:"50px"}}/> : 
+            <div style={{
+                fontWeight:"lighter",
+                fontSize:24,
+                fontFamily: "'proxima-nova',sans-serif",
+                color:"#0F1012"
+                }}>
+                <img src={greencheck} alt="green check markr" style={{width:"50px", marginBottom:"3%"}}/>
+                <br />
+                Alice's Channel Balance: &nbsp; 
+                <AnimatedNumber component="text" value={this.state.balanceA} stepPrecision={2}
+                    style={{
+                        transition: '0.8s ease-out',
+                        transitionProperty:
+                            'background-color, color, opacity'
+                    }}
+                    duration={500} /> DAI
+                    </div>}
+                </div>
         </Col>
         </Row>
         <Row style={{marginTop:"5%"}}>
         <Col className="step2card" style={{   border: "5px solid #fff",
                         borderRadius: "10px",
-                        boxShadow: "1px 2px 4px 0 rgba(0, 0, 0, 0.2), 1px 6px 20px 0 rgba(0, 0, 0, 0.19)"}}>
-        <div>
-        Coffee Shop's Balance: 
-        <AnimatedNumber component="text" value={this.state.balanceB} stepPrecision="2"
+                        boxShadow: "1px 2px 4px 0 rgba(0, 0, 0, 0.2), 1px 6px 20px 0 rgba(0, 0, 0, 0.19)",
+                        fontWeight:"lighter",
+                        fontSize:24,
+                        fontFamily: "'proxima-nova',sans-serif",
+                        color:"#0F1012"}}>
+        <Row style={{
+                paddingTop:"10%"
+                }}>
+        <Col style={{margin:"auto"}}>
+        Cafe's Thread Balance: <br /> 
+        <AnimatedNumber component="text" value={this.state.balanceB} stepPrecision={2}
             style={{
                 transition: '0.8s ease-out',
                 fontSize: 24,
                 transitionProperty:
                     'background-color, color, opacity'
             }}
-            duration={300} />
-        </div>
-        <div>Alice's Balance: 
-        <AnimatedNumber component="text" value={this.state.balanceA} stepPrecision="2"
+            frameStyle={perc => (
+                perc === 100 ? {}:{color: '#08B22D'} 
+            )}
+            duration={500} /> &nbsp;DAI
+        </Col>
+        <Col style={{margin:"auto"}}>Alice's Thread Balance: <br /> 
+        <AnimatedNumber component="text" value={this.state.balanceA} stepPrecision={2}
             style={{
                 transition: '0.8s ease-out',
                 fontSize: 24,
                 transitionProperty:
                     'background-color, color, opacity'
-            }}
-            duration={300} />
-        </div>
+            }} frameStyle={perc => (
+                perc === 100 ? {}:{color: '#F22424'} 
+            )}
+            duration={500} /> &nbsp;DAI
+        </Col>
+        </Row>
         </Col>
         <Col xs="1">
         </Col>
@@ -201,8 +227,10 @@ class Demo extends Component {
         <h4 style={{fontWeight:"lighter",
                             fontFamily: "Comfortaa",
                             color:"#FCA311"}}>STEP 2</h4>
-            <p>Now, it's time for Alice buy a coffee! Coffee costs 0.05 DAI where she's from (wow!) 
-                Go ahead and buy as much coffee as you want! You'll see the coffee shop's balance increase, and Alice's balance decrease.
+            <p>Now, it's time for Alice buy a coffee! The coffee shop is also connected to the hub, so she can open a thread 
+                and pay them directly. 
+                Coffee costs 0.05 DAI where she's from, so you can go ahead and buy as much coffee as you want!
+                 You'll see the coffee shop's balance increase, and Alice's balance decrease.
             </p>
         </div>
         <Button color="warning" outline style={{color:"#FCA311"}} onClick={this.handleThreadSubmit}>Buy a coffee</Button>
@@ -233,65 +261,82 @@ class Demo extends Component {
         <Col className="step3card" style={{   border: "5px solid #fff",
                         borderRadius: "10px",
                         boxShadow: "1px 2px 4px 0 rgba(0, 0, 0, 0.2), 1px 6px 20px 0 rgba(0, 0, 0, 0.19)",
-                        display: "block"}}>
-        <div>Total transactions: 
-        <AnimatedNumber component="text" value={this.state.txCount} stepPrecision="2"
+                        display: "block",
+                        fontWeight:"lighter",
+                        fontSize:24,
+                        fontFamily: "'proxima-nova',sans-serif",
+                        color:"#0F1012"}}>
+        <Row>
+        <div style={{margin:"auto", paddingTop:"6%"}}>Total transactions: &nbsp;
+        <AnimatedNumber component="text" value={this.state.txCount} stepPrecision={0}
             style={{
                 transition: '0.8s ease-out',
-                fontSize: 24,
                 transitionProperty:
                     'background-color, color, opacity'
-            }}
-            duration={300} />
-            
-             </div>
-        <div>Coffee Shop's Balance: 
-        <AnimatedNumber component="text" value={this.state.balanceB} stepPrecision="2"
+            }} frameStyle={perc => (
+                perc === 100 ? {}:{color: '#08B22D'} 
+            )}
+            duration={500} />
+        <br />
+        Cafe's Thread Balance: &nbsp;
+        <AnimatedNumber component="text" value={this.state.balanceB} stepPrecision={2}
             style={{
                 transition: '0.8s ease-out',
-                fontSize: 24,
                 transitionProperty:
                     'background-color, color, opacity'
-            }}
-            duration={300} />
+            }} frameStyle={perc => (
+                perc === 100 ? {}:{color: '#08B22D'} 
+            )}
+            duration={500} />&nbsp;DAI
+        <br />
+        Alice's Thread Balance: &nbsp;
+        <AnimatedNumber component="text" value={this.state.balanceA} stepPrecision={2}
+            style={{
+                transition: '0.8s ease-out',
+                transitionProperty:
+                    'background-color, color, opacity'
+            }}frameStyle={perc => (
+                perc === 100 ? {}:{color: '#F22424'} 
+            )}
+            duration={500} />&nbsp;DAI
         </div>
-        <div>Alice's Balance: 
-        <AnimatedNumber component="text" value={this.state.balanceA} stepPrecision="2"
-            style={{
-                transition: '0.8s ease-out',
-                fontSize: 24,
-                transitionProperty:
-                    'background-color, color, opacity'
-            }}
-            duration={300} />
-        </div>
+        </Row>
         </Col>
         </Row>
         <Row style={{marginTop:"5%"}}>
         <Col className="step4card" style={{   border: "5px solid #fff",
                         borderRadius: "10px",
-                        boxShadow: "1px 2px 4px 0 rgba(0, 0, 0, 0.2), 1px 6px 20px 0 rgba(0, 0, 0, 0.19)"}}>
-        { this.state.showSpinner ? <img src={spinner} alt="orange loading spinner" style={{width:"50px"}}/> : <img src={greencheck} alt="green check markr" style={{width:"50px"}}/> }
-        <br />
-        <div>Coffee Shop's Channel Balance: 
-        <AnimatedNumber component="text" value={this.state.balanceB} stepPrecision="2"
+                        boxShadow: "1px 2px 4px 0 rgba(0, 0, 0, 0.2), 1px 6px 20px 0 rgba(0, 0, 0, 0.19)",
+                        fontWeight:"lighter",
+                        fontSize:24,
+                        fontFamily: "'proxima-nova',sans-serif",
+                        color:"#0F1012"}}>
+            <div style={{paddingTop:"5%"}}>
+        { this.state.showSpinner ? <img src={spinner} alt="orange loading spinner" style={{width:"50px"}}/> : 
+        <div><img src={greencheck} alt="green check markr" style={{width:"50px",marginBottom:"3%"}}/><br />
+        <div>Cafe's Channel Balance: &nbsp;
+        <AnimatedNumber component="text" value={this.state.balanceB} stepPrecision={2}
             style={{
                 transition: '0.8s ease-out',
-                fontSize: 24,
                 transitionProperty:
                     'background-color, color, opacity'
-            }}
-            duration={300} />
+            }} frameStyle={perc => (
+                perc === 100 ? {}:{color: '#F22424'} 
+            )}
+            duration={500} />&nbsp;DAI
         </div>
-        <div>Coffee Shop's Wallet Balance: 
-        <AnimatedNumber component="text" value={this.state.onChainBalanceB} stepPrecision="2"
+        <div>Cafe's Wallet Balance: &nbsp;
+        <AnimatedNumber component="text" value={this.state.onChainBalanceB} stepPrecision={2}
             style={{
                 transition: '0.8s ease-out',
-                fontSize: 24,
                 transitionProperty:
-                    'background-color, color, opacity'
-            }}
-            duration={300} />
+                    'background-color, color, opacity',
+            }} frameStyle={perc => (
+                perc === 100 ? {}:{color: '#08B22D'} 
+            )}
+            duration={500} />&nbsp;DAI
+        </div>
+        </div> } 
         </div>
         </Col>
         <Col xs="1">

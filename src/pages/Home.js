@@ -10,7 +10,7 @@ import Team from "./Team";
 import Landing from "./Landing";
 import Demo from "../components/demo";
 import './styles.css';
-import logoHorizontal from '../assets/logoHorizontal.svg'; //TODO: Firefox doesn't like SVGs. need to fix.sho
+import logoHorizontal from '../assets/logoHorizontal.png';
 import logoWhiteHorizontal from '../assets/logoWhiteHorizontal.png';
 
 class Home extends Component {
@@ -27,8 +27,9 @@ render() {
               <div className="spinner horizontal"></div>
               <div className="spinner diagonal part-2"></div>
             </label>
-            <div id="sidebarMenu">
+            <div id="sidebarMenu" style={{zIndex:'3'}}>
               <ul className="sidebarMenuInner" style={{
+                position:'relative',
                 listStyleType: 'none',
                 margin: '1%',
                 padding: '0',
@@ -58,12 +59,12 @@ render() {
                 padding: '0',
                 overflow: 'hidden',
                 textAlign:'center'
-              }}>
-                <li style={{position:"relative", left:"15px",float:'left', align:'center'}}><Link to="/"><img src={logoHorizontal} alt="Connext Logo Horizontal" style={{width:"60%"}}></img></Link></li>
-                <li style={{float:'right'}}><Link to="/team" className = "topNavLinkDesktop">Team</Link></li>
-                <li style={{float:'right'}}><a href="https://docs.connext.network" className = "topNavLinkDesktop">Docs</a></li>
-                <li style={{float:'right'}}><a href="https://discord.gg/yKkzZZm" className = "topNavLinkDesktop">Chat</a></li>                
-                <li style={{float:'right'}}><a href= "https://medium.com/connext" className = "topNavLinkDesktop">Blog</a></li>               
+                }}>
+                <li style={{position:"relative",left:"-20%",float:'left'}}><Link to="/"><img src={logoHorizontal} alt="Connext Logo Horizontal" style={{width:"30%"}}></img></Link></li>
+                <li style={{position:"relative",float:'right'}}><Link to="/team" className = "topNavLinkDesktop">Team</Link></li>
+                <li style={{position:"relative",float:'right'}}><a href="https://docs.connext.network" className = "topNavLinkDesktop">Docs</a></li>
+                <li style={{position:"relative",float:'right'}}><a href="https://discord.gg/yKkzZZm" className = "topNavLinkDesktop">Chat</a></li>                
+                <li style={{position:"relative",float:'right'}}><a href= "https://medium.com/connext" className = "topNavLinkDesktop">Blog</a></li>               
               </ul>
             </div>
             <Container>
