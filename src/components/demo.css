@@ -1,4 +1,27 @@
 @media screen and (min-width : 760px){
+    .step-wrapper{
+        flex-direction:row;
+    }
+    .step-wrapper{
+        flex-direction:row;
+    }
+    .step-paragraph{
+        width:35%;
+    }
+    .step1card{
+        width:35%;
+    }
+    .step2card{
+        width:35%;
+        flex-grow:1;
+    }
+    .step3card{
+        width:35%;
+    }
+    .step4card{
+        width:35%;
+        flex-grow:1;
+    }
 
   }
   
@@ -6,23 +29,48 @@
         .step1card{
             margin-top:10%;
             margin-bottom:10%;
-
+            width:100%;
         }
         .step2card{
             margin-top:10%;
             margin-bottom:10%;
-            display:flex;
-            order:1;
+            width:100%;
         }
-    .step3card{
-          margin-top:10%;
-          margin-bottom:10%;
+        .step3card{
+            margin-top:10%;
+            margin-bottom:10%;
+            width:100%;
+        }
+        .step4card{
+            margin-top:10%;
+            margin-bottom:10%;
+            width:100%;
+        }
+        .step-paragraph{
+            width:100%;
+        }
+        .step-wrapper{
+            flex-direction:column;
+        }
+        .step-wrapper-reverse{
+            flex-direction:column-reverse;
+        }
 
-      }
-    .step4card{
-        margin-top:10%;
-        margin-bottom:10%;
-        display:flex;
-        order:1;
-      }
     }
+
+.demo-button{
+    color:#fca311;
+    background-color:inherit;
+    border: 1px solid #fca311;
+    border-radius:5px;
+    font-weight:lighter;
+    font-family: 'proxima-nova',sans-serif;
+    padding: 1% 1% 1% 1%;
+}
+.demo-button:hover{
+    background-color:#fca311;
+    color:#fff;
+    opacity:0.8;
+    box-shadow: none;
+}
+

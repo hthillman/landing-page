@@ -1,0 +1,24 @@
+@media screen and (max-width : 760px){
+    .explainer{
+        flex-direction: column;
+    }
+    .explainer1{
+        width:100% ;
+    }
+    .explainer2{
+        width:100% ;
+    }
+}
+
+@media screen and (min-width : 760px){
+    .explainer{
+        flex-direction:row;
+        flex-wrap:wrap;
+    }
+    .explainer1{
+        width:45%;
+    }
+    .explainer2{
+        width:45%;
+    }
+}
