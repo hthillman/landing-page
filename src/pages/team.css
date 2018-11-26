@@ -37,6 +37,8 @@
         margin-top:3%;
         flex-direction:row;
         flex-wrap:wrap;
+        align-items:flex-start;
+        justify-content: space-between;
     }
     .bio-name{
         width: 20%;
@@ -45,8 +47,8 @@
     }
     .bio-pic{
         width: 10%;
-        margin-left:15%;
         margin-top:-1%;
+        margin-left:15%;
         margin-bottom:3%;
     }
     .bio-bio{

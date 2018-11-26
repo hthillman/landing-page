@@ -142,7 +142,7 @@ scrollToMyRef = () => {
                 Thrives on music, hiking, coffee, and optimism. 
                 Former economic consultant and quantitative data analyst. 
               </div>
-            <div className="jobs" id="jobs" style={{width:"100%",marginTop:"2.5%",
+            <div className="jobs" name="jobs" style={{width:"100%",marginTop:"2.5%",
                                                       fontWeight:"lighter",
                                                       fontFamily: "'proxima-nova',sans-serif",
                                                       color:"#0F1012",

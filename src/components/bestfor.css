@@ -61,14 +61,18 @@
 
   .slick-arrow {  }
 
-  .slick-prev:after {
-    bottom:20px;
+  .slick-prev:before {
+    display:flex;
+    align-items: baseline;
     position:relative;
     content: url("../assets/leftarrow.png"); 
     color: #5C626C;
   }
+ 
   
   .slick-next:before {
+    display:flex;
+    align-items: baseline;
     position:relative;
     content: url("../assets/rightarrow.png");
     color: #5C626C;

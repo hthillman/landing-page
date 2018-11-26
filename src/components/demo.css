@@ -1,6 +1,11 @@
 @media screen and (min-width : 760px){
+    .subhead{
+        width:30%;
+    }
     .step-wrapper{
         flex-direction:row;
+        margin-top:7%;
+        margin-left: 10%;
     }
     .step-wrapper{
         flex-direction:row;
@@ -8,52 +13,65 @@
     .step-paragraph{
         width:35%;
     }
+    .step-paragraph-3{
+        width:35%;
+        margin-left:-3%;
+    }
     .step1card{
         width:35%;
+
     }
     .step2card{
         width:35%;
-        flex-grow:1;
     }
     .step3card{
-        width:35%;
+        width:45%;
     }
     .step4card{
         width:35%;
         flex-grow:1;
+        height:8%
     }
 
   }
   
     @media screen and (max-width : 760px){
+        .subhead{
+            width:80%;
+        }
         .step1card{
             margin-top:10%;
             margin-bottom:10%;
             width:100%;
+            order:2;
         }
         .step2card{
             margin-top:10%;
             margin-bottom:10%;
             width:100%;
+            order:2;
         }
         .step3card{
             margin-top:10%;
             margin-bottom:10%;
             width:100%;
+            order:2;
         }
         .step4card{
             margin-top:10%;
             margin-bottom:10%;
             width:100%;
+            order:2;
         }
         .step-paragraph{
             width:100%;
+            order:1;
         }
         .step-wrapper{
             flex-direction:column;
         }
         .step-wrapper-reverse{
-            flex-direction:column-reverse;
+            flex-direction:column;
         }
 
     }

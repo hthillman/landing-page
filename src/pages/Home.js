@@ -8,9 +8,10 @@ import Demo from "../components/demo";
 import './styles.css';
 import logoHorizontal from '../assets/logoHorizontal.png';
 import logoWhiteHorizontal from '../assets/logoWhiteHorizontal.png';
+import background_all from "../assets/background_all.jpg";
 
 
-Modal.setAppElement('#root');
+Modal.setAppElement('#root'); 
 
 class Home extends Component {
   constructor() {
@@ -51,6 +52,7 @@ render() {
 
     return (
       <div className="top" style={{position:"relative",display:"block",minHeight:"100%",overflow:"hidden"}}>
+          <img src={background_all} alt="background" style={{position:"absolute", top:"0%", left:"0",height:"100%",width:"100%", zIndex:"-1000"}} />
           <div className="baseMobile">
             <div className="header"></div>
             <label htmlFor="hamburger" className="sidebarIconToggle" onClick={this.toggleMenu} >
@@ -158,7 +160,7 @@ render() {
                       fontSize: "small",
                       color: "white"}}>Team</Link>
               <br />
-              <Link to="/jobs" style={{
+              <Link to="/team#jobs" style={{
                       fontFamily: "'proxima-nova',sans-serif", 
                       fontSize: "small",
                       color: "white"}}>Jobs</Link>

@@ -3,6 +3,13 @@ import AnimatedNumber from 'react-animated-number';
 import './demo.css';
 import spinner from '../assets/spinner.gif';
 import greencheck from '../assets/greencheck.png';
+import step1 from '../assets/step1.png';
+import step2 from '../assets/step2.png';
+import step3 from '../assets/step3.png';
+import step4A from '../assets/step4A.png';
+import step4B from '../assets/step4B.jpg';
+import bullet from '../assets/bullet.jpg';
+
 
 class Demo extends Component {
     constructor(props) {
@@ -124,26 +131,25 @@ class Demo extends Component {
                     fontWeight:"lighter",
                     fontFamily: "'proxima-nova',sans-serif",
                     color:"#0F1012"}}>
-        <div >
+        <div>
             <h3 style={{fontWeight:"lighter",
                         fontFamily: "Comfortaa",
                         color:"#0F1012",
-                        fontSize:"36px"}}>How it works</h3>
+                        fontSize:"36px"}}>How Indra works</h3>
             <br />
-            <p style={{width:"30%", margin:"auto"}}>Alice wants to buy some coffee from her favorite cafe, but she needs your help!</p>
+            <p  className="subhead" style={{margin:"auto"}}>Let's walk through a typical payment flow</p>
         </div>
-        <div className="step-wrapper" style={{marginTop:"5%",
-                                                marginLeft:"10%",                     
-                                                display:"flex",}}>
+        <div className="step-wrapper" style={{display:"flex",}}>
             <div className="step1card" style={{   border: "5px solid #fff",
                             borderRadius: "20px",
                             boxShadow: "2px 4px 8px 0 rgba(0, 0, 0, 0.2), 2px 12px 40px 0 rgba(0, 0, 0, 0.19)",
-                            display: "block",
-                            height:"8%"
+                            display: "flex",
+                            height:"150px"
+
                             }}>
                 <div style={{display:"flex"}}>
                     <div style={{width:"70%", marginLeft:"0%", marginTop:"3%", fontSize:"16px"}}>
-                            Alice's <br />Channel Balance 
+                            User 1's Channel Balance 
                             <br />
                         { this.state.showSpinner ? 
                             <img src={spinner} alt="orange loading spinner" style={{margin:"auto",width:"50px"}}/> 
@@ -161,25 +167,27 @@ class Demo extends Component {
                                 duration={500}/> DAI </div>
                                  }
                     </div>
-                    <div style={{width:"20%", float:"none"}}>
-                        <img src={greencheck} style={{ width:"100%"}}></img>
+                    <div style={{width:"20%", float:"none", marginTop:"-20%",marginLeft:"-20%"}}>
+                        <img src={step1} style={{ width:"250%"}}></img>
                     </div>
                 </div>
             </div>
             <div style={{width:"20%"}}>
+                <img src={bullet} alt="bullet" />
             </div>
-            <div className="step-paragraph" style={{textAlign:"left",flexGrow:"0",flexShrink:"0"}}>
+            <div className="step-paragraph" style={{textAlign:"left"}}>
                 <h4 style={{fontWeight:"lighter",
                                 fontFamily: "Comfortaa",
-                                color:"#FCA311"}}>
+                                color:"#FCA311",
+                                }}>
                     STEP 1
                 </h4>
                 <p>
-                    First, Alice needs to deposit some money to her friendly neighborhood Connext Hub. Let's give her a hand. 
-                    Let's give her 50 DAI, but this could be ETH or any ERC20 token. Now, watch her channel balance increase.
+                    First, your user deposits funds to their friendly neighborhood Connext Hub. Let's give them a hand. 
+                    The example here is 50 DAI, but this could be ETH or any ERC-20 token. Now, watch their channel balance increase.
                 </p>
                 <button className="demo-button" onClick={this.handleDepositSubmit}>
-                    Deposit money to Alice's channel
+                    Deposit money to channel
                 </button>
             </div>
         </div>
@@ -191,44 +199,28 @@ class Demo extends Component {
                     STEP 2
                 </h4>
                 <p>
-                    Now, it's time for Alice buy a coffee! The coffee shop is also connected to the hub, so she can open a thread 
+                    Now, it's time for your user to pay someone! The counterparty is also connected to the hub, so they can open a thread 
                     and pay them directly. 
-                    Coffee costs 0.05 DAI where she's from, so you can go ahead and buy as much coffee as you want!
-                    You'll see the coffee shop's balance increase, and Alice's balance decrease.
+                    You'll see one balance increase, and the other decrease.
                 </p>
-                <button className="demo-button" onClick={this.handleThreadSubmit}>Buy a coffee</button>
+                <button className="demo-button" onClick={this.handleThreadSubmit}>Pay another user</button>
             </div>
             <div style={{width:"20%"}}>
+                <img src={bullet} alt="bullet" />
             </div>
             <div xs="5" className="step2card" style={{   border: "5px solid #fff",
-                            borderRadius: "10px",
+                            borderRadius: "20px",
                             boxShadow: "1px 2px 4px 0 rgba(0, 0, 0, 0.2), 1px 6px 20px 0 rgba(0, 0, 0, 0.19)",
                             fontWeight:"lighter",
                             fontFamily: "'proxima-nova',sans-serif",
                             color:"#0F1012",
-                            height:"8%",
+                            height:"150px",
                             display:"flex"}}>
-                <div style={{width:"20%"}}>
-                    <img src={greencheck} style={{ width:"100%"}}></img>
+                <div style={{width:"20%", float:"none",marginLeft:"-25%",marginTop:"-7.2%"}}>
+                    <img src={step2} style={{ width:"250%"}}></img>
                 </div>
-                <div style={{marginTop:"2%",fontSize:"16px"}}>
-                Cafe's <br /> Thread Balance <br /> 
-                <AnimatedNumber component="text" value={this.state.balanceB} stepPrecision={2}
-                    style={{
-                        color:"#08B22D",
-                        fontSize:"60px",
-                        fontFamily:"Comfortaa",
-                        fontWeight:"bold",
-                        transition: '0.8s ease-out',
-                        transitionProperty:
-                            'background-color, color, opacity'
-                    }}frameStyle={perc => (
-                        perc === 100 ? {}:{color: '#F22424'} 
-                    )}
-                    duration={500} /> DAI
-                </div>
-                <div style={{marginTop:"2%",fontSize:"16px"}}>
-                Alice's <br />Thread Balance <br />
+                <div style={{float:"right", width:"40%",marginTop:"2%",marginLeft:"30%",fontSize:"16px"}}>
+                User 1's <br />Thread Balance <br />
                 <AnimatedNumber component="text" value={this.state.balanceA} stepPrecision={2}
                     style={{
                         color:"#F22424",
@@ -243,23 +235,39 @@ class Demo extends Component {
                     )}
                     duration={500} /> DAI
                 </div>
+                <div style={{float:"right",width:"40%",marginTop:"2%",fontSize:"16px"}}>
+                User 2's <br /> Thread Balance <br /> 
+                <AnimatedNumber component="text" value={this.state.balanceB} stepPrecision={2}
+                    style={{
+                        color:"#08B22D",
+                        fontSize:"60px",
+                        fontFamily:"Comfortaa",
+                        fontWeight:"bold",
+                        transition: '0.8s ease-out',
+                        transitionProperty:
+                            'background-color, color, opacity'
+                    }}frameStyle={perc => (
+                        perc === 100 ? {}:{color: '#F22424'} 
+                    )}
+                    duration={500} /> DAI
+                </div>
             </div>
         </div>
-        <div className="step-wrapper" style={{marginTop:"5%", display:"flex",marginLeft:"-5%"}}>
+        <div className="step-wrapper" style={{marginTop:"5%", display:"flex",marginLeft:"-6%"}}>
 
             <div className="step3card" style={{   border: "5px solid #fff",
-                            borderRadius: "10px",
+                            borderRadius: "20px",
                             boxShadow: "1px 2px 4px 0 rgba(0, 0, 0, 0.2), 1px 6px 20px 0 rgba(0, 0, 0, 0.19)",
                             display: "flex",
-                            flexGrow:"1",
                             fontWeight:"lighter",
                             fontFamily: "'proxima-nova',sans-serif",
-                            color:"#0F1012"}}>
-                <div style={{marginLeft:"2%", width:"20%"}}>
-                    <img src={greencheck} style={{ width:"100%"}}></img>
+                            color:"#0F1012",
+                            height:"150px"}}>
+                <div style={{marginLeft:"-10%", marginTop:"-8%", width:"15%"}}>
+                    <img src={step3} style={{ width:"200%"}}></img>
                 </div>
-                <div style={{marginLeft:"2%",fontSize:"16px"}}>
-                Alice's <br />Thread Balance
+                <div style={{marginLeft:"12%",fontSize:"16px"}}>
+                User 1's <br />Thread Balance
                 <br />
                 <AnimatedNumber component="text" value={this.state.balanceA} stepPrecision={2}
                     style={{
@@ -276,7 +284,7 @@ class Demo extends Component {
                     duration={500} />&nbsp;DAI
                 </div>                
                 <div style={{marginLeft:"2%",fontSize:"16px",paddingRight:"2%",borderRight:"1px solid #C1C6CE"}}>
-                Cafe's <br />Thread Balance
+                User 2's <br />Thread Balance
                 <br />
                 <AnimatedNumber component="text" value={this.state.balanceB} stepPrecision={2}
                     style={{
@@ -287,12 +295,12 @@ class Demo extends Component {
                         transition: '0.8s ease-out',
                         transitionProperty:
                             'background-color, color, opacity'
-                    }} frameStyle={perc => (
+                    }} frameStyle={perc => ( 
                         perc === 100 ? {}:{color: '#F22424'} 
                     )}
                     duration={500} />&nbsp;DAI
                 </div>
-                <div style={{marginLeft:"4%"}}>Total <br/>transactions
+                <div style={{margin:"auto"}}>Total <br/>transactions
                 <br/>
                 <AnimatedNumber component="text" value={this.state.txCount} stepPrecision={0}
                     style={{
@@ -310,17 +318,18 @@ class Demo extends Component {
                 </div>               
             </div>
             <div style={{width:"20%"}}>
+                <img src={bullet} alt="bullet" />
             </div>
-            <div className="step-paragraph" style={{textAlign:"left"}}>
+            <div className="step-paragraph-3" style={{textAlign:"left"}}>
                 <h4 style={{fontWeight:"lighter",
                                 fontFamily: "Comfortaa",
                                 color:"#FCA311"}}>
                     STEP 3
                 </h4>
-                <p>Alice <span style={{fontStyle:"italic"}}>loves</span> coffee. She wants to spend all of her money on more cups!
-                    Press 'buy all the coffee' and watch the transactions fly by.
+                <p>Payments through a Connext Hub are instant and free, so your users can go ahead and pay as frequently
+                    as they want. Try making a lot of payments!
                 </p>
-                <button className="demo-button"onClick={this.handleDrain}>Buy all the coffee</button>
+                <button className="demo-button"onClick={this.handleDrain}>Make more payments</button>
             </div>
         </div>
         <div className="step-wrapper-reverse" style={{marginTop:"5%",display:"flex",marginLeft:"10%"}}>
@@ -328,24 +337,28 @@ class Demo extends Component {
                 <h4 style={{fontWeight:"lighter",
                                     fontFamily: "Comfortaa",
                                     color:"#FCA311"}}>STEP 4</h4>
-                <p style={{textAlign:"right"}}>Now the coffee shop wants to take its money out of the channel so they can use it to pay their baristas.
-                    Press "Cash out" and watch the money flow into the coffee shop's wallet!
+                <p style={{textAlign:"right"}}>Now User 2 wants to withdraw their money to use on a dApp that hasn't integrated Connext. Sad face.
+                    Press "Cash out" and watch the money flow into their wallet!
                 </p>
                 <button className="demo-button" onClick={this.cashOut}>Cash out</button>
             </div>
             <div style={{width:"20%"}}>
+                <img src={bullet} alt="bullet" />
             </div>
             <div className="step4card" style={{   border: "5px solid #fff",
-                            borderRadius: "10px",
+                            borderRadius: "20px",
                             boxShadow: "1px 2px 4px 0 rgba(0, 0, 0, 0.2), 1px 6px 20px 0 rgba(0, 0, 0, 0.19)",
                             fontWeight:"lighter",
                             fontSize:24,
                             fontFamily: "'proxima-nova',sans-serif",
                             color:"#0F1012",
-                            display:"flex"}}>
-                <div style={{width:"5%"}}></div>
-                    <div style={{fontSize:"16px"}}>
-                        Cafe's <br />Channel Balance
+                            display:"flex",
+                            height:"125px"}}>
+                <div style={{width:"10%", marginLeft:"-7%", marginTop:"4%"}}>
+                    <img src={step4B} alt="step4B" style={{width:"200%"}} />
+                </div>
+                    <div style={{fontSize:"16px",marginLeft:"10%"}}>
+                        User 2's <br />Channel Balance
                         { this.state.showSpinner ? 
                             <img src={spinner} alt="orange loading spinner" style={{margin:"auto",width:"50px"}}/> 
                             : 
@@ -368,7 +381,7 @@ class Demo extends Component {
                         }
                     </div>
                     <div style={{marginLeft:"2%",fontSize:"16px"}}>
-                        Cafe's <br />Wallet Balance
+                        User 2's <br />Wallet Balance
                         { this.state.showSpinner ? 
                             <img src={spinner} alt="orange loading spinner" style={{margin:"auto",width:"50px"}}/> 
                         : 
@@ -389,8 +402,8 @@ class Demo extends Component {
                         </div>
                         }
                     </div>
-                    <div style={{width:"20%", float:"none"}}>
-                        <img src={greencheck} style={{ width:"100%"}}></img>
+                    <div style={{width:"20%", float:"none",marginTop:"-15%",marginLeft:"-10%"}}>
+                        <img src={step4A} style={{ width:"300%"}}></img>
                     </div>
             </div>
         </div>

@@ -1,5 +1,8 @@
 import React, {Component} from "react";
 import './billions.css';
+import payments from "../assets/payments.jpg";
+import layer2 from "../assets/layer2.jpg";
+
 
 class Explainer extends Component{
     render(){
@@ -7,16 +10,16 @@ class Explainer extends Component{
             <div className="explainer" style={{textAlign:"center",
                                                 display:"flex", 
                                                 marginBottom:"10%"}}>
-                <div style={{width:"50%", order:"1"}}>
-                    first picture goes here!
+                <div style={{width:"40%", order:"1", marginLeft:"5%", marginTop:"5%%"}}>
+                    <img src={layer2} alt="layer2" style={{width:"190px"}}/>
                 </div>
-                <div className="explainer1"style={{ marginLeft:"0%", textAlign:"left",order:"2", marginBottom:"25%"}}>
+                <div className="explainer1"style={{ marginLeft:"5%", textAlign:"left",order:"2", marginBottom:"25%"}}>
                     <h3 style={{fontWeight:"lighter",
                                 fontFamily: "Comfortaa",
                                 color:"#FCA311"}}>
-                        A Layer on Top of the Blockchain
+                        Indra: A Layer on Top of the Blockchain
                     </h3>
-                    Connext lets you easily set up and use a state channel hub. 
+                    Indra, our core offering, lets you easily set up and use a state channel hub. 
                     By securely moving transactions to a networked, trustless, off-chain layer, 
                     we minimize the transaction fees and latency that hinder UX and 
                     prevent dApps from scaling. We interoperate with Ethereum and all ERC20 tokens.
@@ -32,8 +35,8 @@ class Explainer extends Component{
                     most assets, applications, and ecosystems will be secured by blockchains.
                     We enable the transaction throughput and speed needed to make this a reality.
                 </div>
-                <div style={{width:"50%",order:"4"}}>
-                    next picture goes here!
+                <div style={{width:"40%",order:"4",marginTop:"-10%"}}>
+                    <img src={payments} alt="payments" style={{width:"190px"}}/>
                 </div>
             </div>
         )

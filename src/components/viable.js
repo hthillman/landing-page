@@ -1,11 +1,12 @@
 import React, {Component} from "react";
 import './viable.css';
+import developer from "../assets/developer.png";
 
 
 class Viable extends Component{
     render(){
         return(
-        <div className="viable" style={{marginBottom:"10%"}}>
+        <div className="viable">
           <div style={{width:"100%",textAlign:"center",marginBottom:"2%"}}>
             <h3 style={{fontWeight:"lighter",
                               fontFamily: "Comfortaa",
@@ -18,8 +19,8 @@ class Viable extends Component{
                         fontFamily: "'proxima-nova',sans-serif",
                         color:"#0F1012",
                         display:"flex"}}>
-            <div className="viable-block" style={{marginBottom:"6%"}}>
-              pic goes here!
+            <div className="viable-block-pic" style={{marginBottom:"6%"}}>
+              <img src={developer} alt="developer image" style={{width:"320px"}} />
             </div>
             <div className="viable-block" style={{marginBottom:"6%"}}>
                 <span style={{color:"#FCA311"}} >DEVELOPER FOCUSED</span>
@@ -28,7 +29,7 @@ class Viable extends Component{
                 We obsess about creating the optimal developer experience by shipping 
                 modular, intuitive, and robust integration paths. Check out our docs to get started.
             </div>    
-            <div className="divider" style={{borderLeft:"thin solid", color:"#0F1012"}}>
+            <div className="divider">
             </div> 
             <div className="viable-block" style={{marginBottom:"6%"}}>
                 <span style={{color:"#FCA311"}} >TRUSTLESS</span>
@@ -37,7 +38,7 @@ class Viable extends Component{
                 Our formally verified framework eliminates all counterparty risk. 
                 This means your applicaction always preserves the security guarantees of the blockchain.
             </div>     
-            <div className="divider" style={{borderLeft:"thin solid", color:"#0F1012"}}></div>  
+            <div className="divider"></div>  
             <div className="viable-block" style={{marginBottom:"6%"}}>
               <span style={{color:"#FCA311"}} >OPEN SOURCE</span>
               <br />
